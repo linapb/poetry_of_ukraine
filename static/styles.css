@@ -1,0 +1,52 @@
+img {
+    width: 143%; /*  1/0.7 = 1.428.. */
+    height: auto;
+}
+
+.poem {
+    background-color: #f8f9fa;
+}
+
+.author {
+}
+
+.box {
+    width: 70%;
+    height: 100%;
+    background-color: brown;
+}
+
+.btn-secondary {
+    color: #000;
+    background-color: #da251d;
+    border: none;
+}
+
+.btn-secondary:focus, .btn-secondary:hover, .btn-secondary:active, .btn-primary:visited {
+    background-color: #000;
+    box-shadow:none;
+}
+
+
+.topic {
+    color: #777;
+}
+
+
+body{
+    background-image: url("images/embroidery.svg"), url("images/embroidery.svg");
+    background-size: 100px, 100px;
+    background-repeat: repeat-y, repeat-y;
+    background-position: left top, right top;
+}
+
+.navbar {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.lead {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+

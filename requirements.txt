@@ -1,0 +1,5 @@
+python-dotenv~=1.0.0
+Flask~=2.3.2
+openai==0.27.8
+translitua==1.3.2
+natsort==8.4.0
