@@ -57,7 +57,7 @@ def translate_name(name, lang):
     prompt = f"Hello! Please translate the following Ukrainian name into {lang}: " + name + "/n/n"
 
     response = openai.Completion.create(
-      model="text-davinci-003",
+      model=model_id,
       prompt=prompt,
       temperature=0,
       max_tokens=2500,
@@ -72,7 +72,7 @@ def translate_title(title, lang):
     prompt = f"Hello! Please translate the following Ukrainian poem's title into {lang}: " + title + "/n/n"
 
     response = openai.Completion.create(
-      model="text-davinci-003",
+      model=model_id,
       prompt=prompt,
       temperature=0,
       max_tokens=2500,
