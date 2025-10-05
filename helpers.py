@@ -6,7 +6,7 @@ import translitua
 from natsort import natsorted
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
-model_id = "gpt-3.5-turbo-instruct"
+model_id = "gpt-5"
 
 
 def get_translations(poems, lang):
@@ -36,7 +36,7 @@ def get_poems():
 
 def translate_poem(poem, lang):
     prompt = f"Hello! Please translate the following Ukrainian poem into {lang}. Make it rhyme well. " \
-            "Keep HTML line and paragraph brakes. The poem:/n" + poem + "/n/n"
+            "Keep HTML line and paragraph breaks. The poem:/n" + poem + "/n/n"
 
     response = openai.Completion.create(
       model=model_id,
