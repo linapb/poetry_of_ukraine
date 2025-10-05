@@ -6,6 +6,7 @@ import translitua
 from natsort import natsorted
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
+model_id = "gpt-3.5-turbo-instruct"
 
 
 def get_translations(poems, lang):
@@ -38,7 +39,7 @@ def translate_poem(poem, lang):
             "Keep HTML line and paragraph brakes. The poem:/n" + poem + "/n/n"
 
     response = openai.Completion.create(
-      model="text-davinci-003",
+      model=model_id,
       prompt=prompt,
       temperature=0,
       max_tokens=2500,
