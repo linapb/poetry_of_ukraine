@@ -7,7 +7,7 @@ from openai import OpenAI
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-model_id = "gpt-5"
+model_id = "gpt-3.5-turbo"
 
 def get_translations(poems, lang):
     translations = []
@@ -36,7 +36,8 @@ def translate_poem(poem, lang):
     prompt = (
         f"Translate the following Ukrainian poem into {lang}. "
         f"Make it rhyme naturally in {lang}. "
-        f"Preserve line breaks (<br> or <p> tags). "
+        f"Very important, it contains html tags. Keep that html tags, under any condition don't change them (<br> and <p> tags) "
+        f"and don't add any other html tags. If you do, it will break the web page. Don't change html tags!"
         f"Output only the translated poem — no explanations, no commentary, no quotes.\n\n"
         f"Poem:\n{poem}"
     )
@@ -48,7 +49,7 @@ def translate_poem(poem, lang):
             {"role": "user", "content": prompt},
         ],
         temperature=1,
-        max_completion_tokens=8000,
+        max_completion_tokens=4096,
     )
 
     return response.choices[0].message.content.strip()
@@ -60,6 +61,7 @@ def translate_name(name, lang):
 
     prompt = (
         f"Translate the following Ukrainian personal name into {lang}. "
+        f"If the name is Володимир, keep Ukrainian pronunciation, so not Vladimir. "
         f"Output only the translated name, without quotes, commentary, or explanation.\n\n"
         f"Name: {name}"
     )
