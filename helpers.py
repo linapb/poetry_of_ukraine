@@ -10,21 +10,8 @@ client = AsyncOpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 model_id = "gpt-3.5-turbo"
 
-
-async def get_translations(poems, lang):
-    """Translate all poems concurrently."""
-    tasks = [translate_poem_data(poem, lang) for poem in poems]
-    return await asyncio.gather(*tasks)
-
-
-async def translate_poem_data(poem, lang):
-    """Translate all fields (title, author, topic, text) of a single poem."""
-    translation = deepcopy(poem)
-    translation["title"] = await translate_title(poem["title"], lang)
-    translation["author"] = await translate_name(poem["author"], lang)
-    translation["topic"] = await translate_title(poem["topic"], lang)
-    translation["text"] = await translate_poem(poem["text"], lang)
-    return translation
+# Limit concurrent OpenAI API calls to avoid rate-limit errors
+SEMAPHORE = asyncio.Semaphore(50)
 
 
 def get_poems():
@@ -37,6 +24,35 @@ def get_poems():
             with open(os.path.join("poems", file), "r") as f:
                 poems.append(json.load(f))
     return poems
+
+async def safe_call(coro):
+    """Run OpenAI call safely within a concurrency limit."""
+    async with SEMAPHORE:
+        return await coro
+
+
+async def get_translations(poems, lang):
+    """Translate all poems concurrently."""
+    tasks = [asyncio.create_task(translate_poem_data(poem, lang)) for poem in poems]
+    translations = await asyncio.gather(*tasks)
+    return translations
+
+
+async def translate_poem_data(poem, lang):
+    """Translate all fields (title, author, topic, text) of a single poem concurrently."""
+    translation = deepcopy(poem)
+
+    # Translate all parts in parallel
+    title_task = asyncio.create_task(safe_call(translate_title(poem["title"], lang)))
+    author_task = asyncio.create_task(safe_call(translate_name(poem["author"], lang)))
+    topic_task = asyncio.create_task(safe_call(translate_title(poem["topic"], lang)))
+    text_task = asyncio.create_task(safe_call(translate_poem(poem["text"], lang)))
+
+    translation["title"], translation["author"], translation["topic"], translation["text"] = await asyncio.gather(
+        title_task, author_task, topic_task, text_task
+    )
+
+    return translation
 
 
 async def translate_poem(poem, lang):
