@@ -1,6 +1,7 @@
 import os
 import asyncio
 from flask import Flask, redirect, render_template, request
+from asgiref.wsgi import WsgiToAsgi
 
 import helpers
 
@@ -36,3 +37,5 @@ async def index():
         poems = await helpers.get_translations(poems, lang)
 
     return render_template("index.html", poems=poems)
+
+asgi_app = WsgiToAsgi(app)
