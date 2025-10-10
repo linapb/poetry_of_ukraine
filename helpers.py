@@ -1,27 +1,34 @@
 import os
 import json
+import asyncio
 from copy import deepcopy
 import translitua
 from natsort import natsorted
-from openai import OpenAI
+from openai import AsyncOpenAI
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = AsyncOpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 model_id = "gpt-3.5-turbo"
 
-def get_translations(poems, lang):
-    translations = []
-    for poem in poems:
-        translation = deepcopy(poem)
-        translation["title"] = translate_title(poem["title"], lang)
-        translation["author"] = translate_name(poem["author"], lang)
-        translation["topic"] = translate_title(poem["topic"], lang)
-        translation["text"] = translate_poem(poem["text"], lang)
-        translations.append(translation)
-    return translations
+
+async def get_translations(poems, lang):
+    """Translate all poems concurrently."""
+    tasks = [translate_poem_data(poem, lang) for poem in poems]
+    return await asyncio.gather(*tasks)
+
+
+async def translate_poem_data(poem, lang):
+    """Translate all fields (title, author, topic, text) of a single poem."""
+    translation = deepcopy(poem)
+    translation["title"] = await translate_title(poem["title"], lang)
+    translation["author"] = await translate_name(poem["author"], lang)
+    translation["topic"] = await translate_title(poem["topic"], lang)
+    translation["text"] = await translate_poem(poem["text"], lang)
+    return translation
 
 
 def get_poems():
+    """Load poem files as JSON."""
     poems = []
     files = natsorted(os.listdir("poems"))
     for file in files:
@@ -32,7 +39,7 @@ def get_poems():
     return poems
 
 
-def translate_poem(poem, lang):
+async def translate_poem(poem, lang):
     prompt = (
         f"Translate the following Ukrainian poem into {lang}. "
         f"Make it rhyme naturally in {lang}. "
@@ -42,7 +49,7 @@ def translate_poem(poem, lang):
         f"Poem:\n{poem}"
     )
 
-    response = client.chat.completions.create(
+    response = await client.chat.completions.create(
         model=model_id,
         messages=[
             {"role": "system", "content": "You are a poetic translator."},
@@ -55,7 +62,7 @@ def translate_poem(poem, lang):
     return response.choices[0].message.content.strip()
 
 
-def translate_name(name, lang):
+async def translate_name(name, lang):
     if lang == "English":
         return translitua.translit(name)
 
@@ -66,7 +73,7 @@ def translate_name(name, lang):
         f"Name: {name}"
     )
 
-    response = client.chat.completions.create(
+    response = await client.chat.completions.create(
         model=model_id,
         messages=[
             {"role": "system", "content": "You are a name translator."},
@@ -79,14 +86,14 @@ def translate_name(name, lang):
     return response.choices[0].message.content.strip()
 
 
-def translate_title(title, lang):
+async def translate_title(title, lang):
     prompt = (
         f"Translate the following Ukrainian poem title into {lang}. "
         f"Output only the translated title text — no quotes, no commentary, no extra text.\n\n"
         f"Title: {title}"
     )
 
-    response = client.chat.completions.create(
+    response = await client.chat.completions.create(
         model=model_id,
         messages=[
             {"role": "system", "content": "You translate poem titles accurately and beautifully."},

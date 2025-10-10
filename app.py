@@ -1,4 +1,5 @@
 import os
+import asyncio
 from flask import Flask, redirect, render_template, request
 
 import helpers
@@ -27,11 +28,11 @@ def internal_server_error(e):
 
 
 @app.route("/")
-def index():
+async def index():
     poems = helpers.get_poems()
 
     lang = request.args.get("lang")
     if lang not in [None, "Ukrainian"]:
-        poems = helpers.get_translations(poems, lang)
+        poems = await helpers.get_translations(poems, lang)
 
     return render_template("index.html", poems=poems)
