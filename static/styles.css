@@ -38,7 +38,7 @@ img {
 
 
 body{
-    background-image: url("images/embroidery.svg"), url("images/embroidery.svg");
+    background-image: url("/static/images/embroidery.svg"), url("/static/images/embroidery.svg");
     background-size: 100px, 100px;
     background-repeat: repeat-y, repeat-y;
     background-position: left top, right top;
