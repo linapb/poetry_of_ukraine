@@ -45,7 +45,7 @@ async def translate_poem_data(poem, lang):
     # Translate all parts in parallel
     title_task = asyncio.create_task(safe_call(translate_title(poem["title"], lang)))
     author_task = asyncio.create_task(safe_call(translate_name(poem["author"], lang)))
-    topic_task = asyncio.create_task(safe_call(translate_title(poem["topic"], lang)))
+    topic_task = asyncio.create_task(safe_call(translate_topic(poem["topic"], lang)))
     text_task = asyncio.create_task(safe_call(translate_poem(poem["text"], lang)))
 
     translation["title"], translation["author"], translation["topic"], translation["text"] = await asyncio.gather(
@@ -107,6 +107,26 @@ async def translate_title(title, lang):
         f"Translate the following Ukrainian poem title into {lang}. "
         f"Output only the translated title text — no quotes, no commentary, no extra text.\n\n"
         f"Title: {title}"
+    )
+
+    response = await client.chat.completions.create(
+        model=model_id,
+        messages=[
+            {"role": "system", "content": "You translate poem titles accurately and beautifully."},
+            {"role": "user", "content": prompt},
+        ],
+        temperature=1,
+        max_completion_tokens=1000,
+    )
+
+    return response.choices[0].message.content.strip()
+
+async def translate_topic(topic, lang):
+    prompt = (
+        f"Translate the following Ukrainian poem topic into {lang}. "
+        f"Keep two dots at the end. "
+        f"Output only the translated title text — no quotes, no commentary, no extra text.\n\n"
+        f"Topic: {topic}"
     )
 
     response = await client.chat.completions.create(
