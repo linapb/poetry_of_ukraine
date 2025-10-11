@@ -9,3 +9,17 @@
 function changeLanguage(lang) {
     window.location.href = "/?lang=" + lang;
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const languageMenu = document.getElementById('language-menu');
+    if (languageMenu) {
+        languageMenu.addEventListener('click', function(event) {
+            const target = event.target.closest('a[data-lang]');
+            if (target) {
+                event.preventDefault();
+                const language = target.getAttribute('data-lang');
+                changeLanguage(language);
+            }
+        });
+    }
+});

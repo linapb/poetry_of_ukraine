@@ -30,120 +30,120 @@
           <a class="navbar-brand fst-italic">Select your language <span class="bi bi-arrow-right" style="-webkit-text-stroke-width: 2px;"> </span></a>
           <div class="dropdown">
               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"> LANGUAGE</button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Ukrainian')"><span class="fi fi-ua"></span> Українська - Original</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('English')"><span class="fi fi-gb"></span> English</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('German')"><span class="fi fi-de"></span> Deutsch</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('French')"><span class="fi fi-fr"></span> Français</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Spanish')"><span class="fi fi-es"></span> Español</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Polish')"><span class="fi fi-pl"></span> Polski</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Portuguese')"><span class="fi fi-pt"></span> Português</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Italian')"><span class="fi fi-it"></span> Italiano</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Japanese')"><span class="fi fi-jp"></span> 日本語</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Chinese')"><span class="fi fi-cn"></span> 中文</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Hebrew')"><span class="fi fi-il"></span> עברית</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Korean')"><span class="fi fi-kr"></span> 한국어</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Arabic')"><span class="fi fi-sa"></span> العربية</a></li>
+              <ul class="dropdown-menu" id="language-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="#" data-lang="Ukrainian"><span class="fi fi-ua"></span> Українська - Original</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="English"><span class="fi fi-gb"></span> English</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="German"><span class="fi fi-de"></span> Deutsch</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="French"><span class="fi fi-fr"></span> Français</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Spanish"><span class="fi fi-es"></span> Español</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Polish"><span class="fi fi-pl"></span> Polski</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Portuguese"><span class="fi fi-pt"></span> Português</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Italian"><span class="fi fi-it"></span> Italiano</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Japanese"><span class="fi fi-jp"></span> 日本語</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Chinese"><span class="fi fi-cn"></span> 中文</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Hebrew"><span class="fi fi-il"></span> עברית</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Korean"><span class="fi fi-kr"></span> 한국어</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Arabic"><span class="fi fi-sa"></span> العربية</a></li>
 
 
                     <li><hr class="dropdown-divider" /></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Afrikaans')"><span class="fi fi-za"></span> Afrikaans</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Albanian')"><span class="fi fi-al"></span> Shqip</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Amharic')"><span class="fi fi-et"></span> አማርኛ</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Arabic')"><span class="fi fi-sa"></span> العربية</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Armenian')"><span class="fi fi-am"></span> Հայերեն</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Azerbaijani')"><span class="fi fi-az"></span> Azərbaycan</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Basque')"><span class="fi fi-es"></span> Euskara</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Bengali')"><span class="fi fi-bd"></span> বাংলা</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Bosnian')"><span class="fi fi-ba"></span> Bosanski</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Bulgarian')"><span class="fi fi-bg"></span> Български</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Burmese')"><span class="fi fi-mm"></span> မြန်မာ</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Catalan')"><span class="fi fi-es"></span> Català</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Cebuano')"><span class="fi fi-ph"></span> Sinugbuanong Binisayâ</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Chinese')"><span class="fi fi-cn"></span> 中文</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Croatian')"><span class="fi fi-hr"></span> Hrvatski</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Czech')"><span class="fi fi-cz"></span> Čeština</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Danish')"><span class="fi fi-dk"></span> Dansk</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Dutch')"><span class="fi fi-nl"></span> Nederlands</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('English')"><span class="fi fi-gb"></span> English</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Esperanto')"><span class="fi fi-eo"></span> Esperanto</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Estonian')"><span class="fi fi-ee"></span> Eesti</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Filipino')"><span class="fi fi-ph"></span> Filipino</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Finnish')"><span class="fi fi-fi"></span> Suomi</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('French')"><span class="fi fi-fr"></span> Français</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Galician')"><span class="fi fi-es"></span> Galego</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Georgian')"><span class="fi fi-ge"></span> ქართული</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('German')"><span class="fi fi-de"></span> Deutsch</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Greek')"><span class="fi fi-gr"></span> Ελληνικά</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Gujarati')"><span class="fi fi-in"></span> ગુજરાતી</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Haitian Creole')"><span class="fi fi-ht"></span> Kreyòl ayisyen</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Hausa')"><span class="fi fi-ng"></span> هَوُسَ</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Hebrew')"><span class="fi fi-il"></span> עברית</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Hindi')"><span class="fi fi-in"></span> हिन्दी</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Hmong')"><span class="fi fi-la"></span> Hmoob</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Hungarian')"><span class="fi fi-hu"></span> Magyar</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Icelandic')"><span class="fi fi-is"></span> Íslenska</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Igbo')"><span class="fi fi-ng"></span> Asụsụ Igbo</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Indonesian')"><span class="fi fi-id"></span> Bahasa Indonesia</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Irish')"><span class="fi fi-ie"></span> Gaeilge</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Italian')"><span class="fi fi-it"></span> Italiano</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Japanese')"><span class="fi fi-jp"></span> 日本語</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Javanese')"><span class="fi fi-id"></span> Basa Jawa</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Kannada')"><span class="fi fi-in"></span> ಕನ್ನಡ</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Kazakh')"><span class="fi fi-kz"></span> Қазақ тілі</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Khmer')"><span class="fi fi-kh"></span> ខ្មែរ</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Korean')"><span class="fi fi-kr"></span> 한국어</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Kurdish')"><span class="fi fi-iq"></span> Kurdî</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Kyrgyz')"><span class="fi fi-kg"></span> Кыргызча</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Lao')"><span class="fi fi-la"></span> ລາວ</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Latin')"><span class="fi fi-va"></span> Latine</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Latvian')"><span class="fi fi-lv"></span> Latviešu</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Lithuanian')"><span class="fi fi-lt"></span> Lietuvių</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Luxembourgish')"><span class="fi fi-lu"></span> Lëtzebuergesch</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Macedonian')"><span class="fi fi-mk"></span> Македонски</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Malagasy')"><span class="fi fi-mg"></span> Malagasy</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Malay')"><span class="fi fi-my"></span> Bahasa Melayu</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Malayalam')"><span class="fi fi-in"></span> മലയാളം</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Maltese')"><span class="fi fi-mt"></span> Malti</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Maori')"><span class="fi fi-nz"></span> Te Reo Māori</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Marathi')"><span class="fi fi-in"></span> मराठी</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Mongolian')"><span class="fi fi-mn"></span> Монгол хэл</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Nepali')"><span class="fi fi-np"></span> नेपाली</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Norwegian')"><span class="fi fi-no"></span> Norsk</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Pashto')"><span class="fi fi-af"></span> پښتو</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Persian')"><span class="fi fi-ir"></span> فارسی</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Polish')"><span class="fi fi-pl"></span> Polski</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Portuguese')"><span class="fi fi-pt"></span> Português</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Punjabi')"><span class="fi fi-in"></span> ਪੰਜਾਬੀ</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Romanian')"><span class="fi fi-ro"></span> Română</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Samoan')"><span class="fi fi-ws"></span> Gagana Samoa</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Scots Gaelic')"><span class="fi fi-gb"></span> Gàidhlig</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Serbian')"><span class="fi fi-rs"></span> Српски</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Sesotho')"><span class="fi fi-za"></span> Sesotho</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Shona')"><span class="fi fi-zw"></span> Shona</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Sindhi')"><span class="fi fi-pk"></span> سنڌي</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Sinhala')"><span class="fi fi-lk"></span> සිංහල</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Slovak')"><span class="fi fi-sk"></span> Slovenčina</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Slovenian')"><span class="fi fi-si"></span> Slovenščina</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Somali')"><span class="fi fi-so"></span> Soomaali</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Spanish')"><span class="fi fi-es"></span> Español</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Sundanese')"><span class="fi fi-id"></span> Basa Sunda</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Swahili')"><span class="fi fi-tz"></span> Kiswahili</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Swedish')"><span class="fi fi-se"></span> Svenska</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Tajik')"><span class="fi fi-tj"></span> Тоҷикӣ</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Tamil')"><span class="fi fi-in"></span> தமிழ்</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Telugu')"><span class="fi fi-in"></span> తెలుగు</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Thai')"><span class="fi fi-th"></span> ไทย</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Turkish')"><span class="fi fi-tr"></span> Türkçe</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Ukrainian')"><span class="fi fi-ua"></span> Українська</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Urdu')"><span class="fi fi-pk"></span> اردو</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Uzbek')"><span class="fi fi-uz"></span> O‘zbek</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Vietnamese')"><span class="fi fi-vn"></span> Tiếng Việt</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Welsh')"><span class="fi fi-gb"></span> Cymraeg</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Xhosa')"><span class="fi fi-za"></span> isiXhosa</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Yiddish')"><span class="fi fi-il"></span> יידיש</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Yoruba')"><span class="fi fi-ng"></span> Yorùbá</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeLanguage('Zulu')"><span class="fi fi-za"></span> isiZulu</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Afrikaans"><span class="fi fi-za"></span> Afrikaans</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Albanian"><span class="fi fi-al"></span> Shqip</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Amharic"><span class="fi fi-et"></span> አማርኛ</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Arabic"><span class="fi fi-sa"></span> العربية</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Armenian"><span class="fi fi-am"></span> Հայերեն</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Azerbaijani"><span class="fi fi-az"></span> Azərbaycan</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Basque"><span class="fi fi-es"></span> Euskara</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Bengali"><span class="fi fi-bd"></span> বাংলা</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Bosnian"><span class="fi fi-ba"></span> Bosanski</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Bulgarian"><span class="fi fi-bg"></span> Български</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Burmese"><span class="fi fi-mm"></span> မြန်မာ</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Catalan"><span class="fi fi-es"></span> Català</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Cebuano"><span class="fi fi-ph"></span> Sinugbuanong Binisayâ</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Chinese"><span class="fi fi-cn"></span> 中文</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Croatian"><span class="fi fi-hr"></span> Hrvatski</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Czech"><span class="fi fi-cz"></span> Čeština</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Danish"><span class="fi fi-dk"></span> Dansk</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Dutch"><span class="fi fi-nl"></span> Nederlands</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="English"><span class="fi fi-gb"></span> English</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Esperanto"><span class="fi fi-eo"></span> Esperanto</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Estonian"><span class="fi fi-ee"></span> Eesti</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Filipino"><span class="fi fi-ph"></span> Filipino</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Finnish"><span class="fi fi-fi"></span> Suomi</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="French"><span class="fi fi-fr"></span> Français</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Galician"><span class="fi fi-es"></span> Galego</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Georgian"><span class="fi fi-ge"></span> ქართული</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="German"><span class="fi fi-de"></span> Deutsch</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Greek"><span class="fi fi-gr"></span> Ελληνικά</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Gujarati"><span class="fi fi-in"></span> ગુજરાતી</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Haitian Creole"><span class="fi fi-ht"></span> Kreyòl ayisyen</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Hausa"><span class="fi fi-ng"></span> هَوُسَ</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Hebrew"><span class="fi fi-il"></span> עברית</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Hindi"><span class="fi fi-in"></span> हिन्दी</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Hmong"><span class="fi fi-la"></span> Hmoob</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Hungarian"><span class="fi fi-hu"></span> Magyar</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Icelandic"><span class="fi fi-is"></span> Íslenska</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Igbo"><span class="fi fi-ng"></span> Asụsụ Igbo</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Indonesian"><span class="fi fi-id"></span> Bahasa Indonesia</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Irish"><span class="fi fi-ie"></span> Gaeilge</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Italian"><span class="fi fi-it"></span> Italiano</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Japanese"><span class="fi fi-jp"></span> 日本語</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Javanese"><span class="fi fi-id"></span> Basa Jawa</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Kannada"><span class="fi fi-in"></span> ಕನ್ನಡ</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Kazakh"><span class="fi fi-kz"></span> Қазақ тілі</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Khmer"><span class="fi fi-kh"></span> ខ្មែរ</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Korean"><span class="fi fi-kr"></span> 한국어</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Kurdish"><span class="fi fi-iq"></span> Kurdî</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Kyrgyz"><span class="fi fi-kg"></span> Кыргызча</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Lao"><span class="fi fi-la"></span> ລາວ</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Latin"><span class="fi fi-va"></span> Latine</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Latvian"><span class="fi fi-lv"></span> Latviešu</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Lithuanian"><span class="fi fi-lt"></span> Lietuvių</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Luxembourgish"><span class="fi fi-lu"></span> Lëtzebuergesch</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Macedonian"><span class="fi fi-mk"></span> Македонски</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Malagasy"><span class="fi fi-mg"></span> Malagasy</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Malay"><span class="fi fi-my"></span> Bahasa Melayu</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Malayalam"><span class="fi fi-in"></span> മലയാളം</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Maltese"><span class="fi fi-mt"></span> Malti</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Maori"><span class="fi fi-nz"></span> Te Reo Māori</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Marathi"><span class="fi fi-in"></span> मराठी</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Mongolian"><span class="fi fi-mn"></span> Монгол хэл</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Nepali"><span class="fi fi-np"></span> नेपाली</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Norwegian"><span class="fi fi-no"></span> Norsk</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Pashto"><span class="fi fi-af"></span> پښتو</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Persian"><span class="fi fi-ir"></span> فارسی</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Polish"><span class="fi fi-pl"></span> Polski</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Portuguese"><span class="fi fi-pt"></span> Português</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Punjabi"><span class="fi fi-in"></span> ਪੰਜਾਬੀ</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Romanian"><span class="fi fi-ro"></span> Română</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Samoan"><span class="fi fi-ws"></span> Gagana Samoa</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Scots Gaelic"><span class="fi fi-gb"></span> Gàidhlig</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Serbian"><span class="fi fi-rs"></span> Српски</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Sesotho"><span class="fi fi-za"></span> Sesotho</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Shona"><span class="fi fi-zw"></span> Shona</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Sindhi"><span class="fi fi-pk"></span> سنڌي</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Sinhala"><span class="fi fi-lk"></span> සිංහල</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Slovak"><span class="fi fi-sk"></span> Slovenčina</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Slovenian"><span class="fi fi-si"></span> Slovenščina</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Somali"><span class="fi fi-so"></span> Soomaali</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Spanish"><span class="fi fi-es"></span> Español</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Sundanese"><span class="fi fi-id"></span> Basa Sunda</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Swahili"><span class="fi fi-tz"></span> Kiswahili</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Swedish"><span class="fi fi-se"></span> Svenska</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Tajik"><span class="fi fi-tj"></span> Тоҷикӣ</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Tamil"><span class="fi fi-in"></span> தமிழ்</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Telugu"><span class="fi fi-in"></span> తెలుగు</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Thai"><span class="fi fi-th"></span> ไทย</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Turkish"><span class="fi fi-tr"></span> Türkçe</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Ukrainian"><span class="fi fi-ua"></span> Українська</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Urdu"><span class="fi fi-pk"></span> اردو</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Uzbek"><span class="fi fi-uz"></span> O‘zbek</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Vietnamese"><span class="fi fi-vn"></span> Tiếng Việt</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Welsh"><span class="fi fi-gb"></span> Cymraeg</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Xhosa"><span class="fi fi-za"></span> isiXhosa</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Yiddish"><span class="fi fi-il"></span> יידיש</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Yoruba"><span class="fi fi-ng"></span> Yorùbá</a></li>
+                    <li><a class="dropdown-item" href="#" data-lang="Zulu"><span class="fi fi-za"></span> isiZulu</a></li>
               </ul>
           </div>
 
