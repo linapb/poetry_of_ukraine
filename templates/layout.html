@@ -21,6 +21,11 @@
     <title> Poetry of Ukraine: {% block title %}{% endblock %} </title>
   </head>
   <body>
+    <div id="spinner-overlay" class="spinner-overlay">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
     <nav class="navbar navbar-expand navbar-light flex-wrap">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">EXPERIENCE POETRY OF UKRAINE IN YOUR NATIVE LANGUAGE</a>
@@ -157,7 +162,7 @@
     <!-- Footer -->
     <footer class="text-center text-lg-start text-muted">
       <div class="text-center p-4">
-        <p>Note: translations powered by LLM models. They can be incomplete or incorrect.</p>
+        <p>Note: translations are powered by LLM models. They can be incomplete or incorrect.</p>
           <p>2023, Developed and maintained by <a class="text-reset fw-bold" href="https://github.com/">@linapb</a></p>
       </div>
     </footer>

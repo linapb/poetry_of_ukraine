@@ -18,6 +18,13 @@ document.addEventListener('DOMContentLoaded', function() {
             if (target) {
                 event.preventDefault();
                 const language = target.getAttribute('data-lang');
+
+                // Show spinner
+                const spinnerOverlay = document.getElementById('spinner-overlay');
+                if (spinnerOverlay) {
+                    spinnerOverlay.style.display = 'flex';
+                }
+
                 changeLanguage(language);
             }
         });
