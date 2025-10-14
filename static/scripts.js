@@ -29,4 +29,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    const rays = document.querySelectorAll('.sun-ray');
+    const rayCount = rays.length;
+    rays.forEach((ray, i) => {
+        const angle = (360 / rayCount) * i;
+        ray.style.transform = `rotate(${angle}deg) translateY(-40px)`;
+    });
 });

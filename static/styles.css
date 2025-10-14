@@ -63,6 +63,54 @@ body{
     height: 100%;
     background-color: rgba(255, 255, 255, 0.7);
     z-index: 9999;
+}
+
+.sun-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.sun-spinner::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #FFD700;
+    border-radius: 50%;
+    box-shadow: none;
+    z-index: 1;
+}
+
+.sun-rays-container {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    animation: spin 2s linear infinite;
+}
+
+.sun-ray {
+    position: absolute;
+    width: 8px;
+    height: 25px;
+    background-color: #FFD700;
+    border-radius: 4px;
+    top: 50%;
+    left: 50%;
+    margin-top: -12.5px;
+    margin-left: -4px;
+    transform-origin: center;
+}
+
+
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
