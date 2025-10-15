@@ -42,6 +42,7 @@ body{
     background-size: 100px, 100px;
     background-repeat: repeat-y, repeat-y;
     background-position: left top, right top;
+    background-attachment: fixed, fixed;
 }
 
 .navbar {
