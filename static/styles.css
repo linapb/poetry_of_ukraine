@@ -82,7 +82,7 @@ body{
     position: absolute;
     width: 40px;
     height: 40px;
-    background-color: #FFD700;
+    background-color: #da251d;
     border-radius: 50%;
     box-shadow: none;
     z-index: 1;
@@ -99,8 +99,7 @@ body{
     position: absolute;
     width: 8px;
     height: 25px;
-    background-color: #FFD700;
-    border-radius: 4px;
+    background-color: #da251d;
     top: 50%;
     left: 50%;
     margin-top: -12.5px;
