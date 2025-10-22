@@ -7,7 +7,11 @@
 //}
 
 function changeLanguage(lang) {
-    window.location.href = "/?lang=" + lang;
+    if (lang === 'Ukrainian') {
+        window.location.href = "/";
+    } else {
+        window.location.href = "/?lang=" + lang;
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
