@@ -116,6 +116,17 @@ body{
     to { transform: rotate(360deg); }
 }
 
+#language-search {
+    margin-left: 5px;
+    margin-right: 5px;
+    width: calc(100% - 10px);
+}
+
+#language-search:focus {
+    border-color: #da251d;
+    box-shadow: 0 0 0 0.25rem rgba(218, 37, 29, 0.25);
+}
+
 @media (max-width: 767.98px) {
     /* Center poems and topics */
     .row.pb-5 {
