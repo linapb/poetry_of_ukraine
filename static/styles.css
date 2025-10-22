@@ -129,7 +129,7 @@ body{
     .container {
         max-width: 95%;
     }
-    .navbar, .lead {
+    .navbar, .lead, footer {
         margin-left: 60px !important;
         margin-right: 60px !important;
     }
