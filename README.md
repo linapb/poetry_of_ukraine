@@ -78,4 +78,5 @@ helpers.py contains the following functions: translate_poem, translate_title, tr
 
 app.py is a standard Flask app with one root "/", error handling (404, 500) and configuration from config.py object.
 
+The app uses Google Analytics to track visits and language selection events.
 

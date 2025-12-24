@@ -23,6 +23,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 event.preventDefault();
                 const language = target.getAttribute('data-lang');
 
+                // Track language selection with Google Analytics
+                if (typeof gtag === 'function') {
+                    gtag('event', 'language_select', {
+                        'event_category': 'engagement',
+                        'event_label': language
+                    });
+                }
+
                 // Show spinner
                 const spinnerOverlay = document.getElementById('spinner-overlay');
                 if (spinnerOverlay) {
