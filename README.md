@@ -80,3 +80,4 @@ app.py is a standard Flask app with one root "/", error handling (404, 500) and 
 
 The app uses Google Analytics to track visits and language selection events.
 
+A sitemap.xml file is available at /static/sitemap.xml.
