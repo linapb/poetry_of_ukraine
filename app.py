@@ -30,13 +30,15 @@ def internal_server_error(e):
 
 @app.route("/")
 async def index():
+    email_is_set = os.environ.get('CONTACT_EMAIL') is not None
+
     poems = helpers.get_poems()
 
     lang = request.args.get("lang")
     if lang not in [None, "Ukrainian"]:
         poems = await helpers.get_translations(poems, lang)
 
-    return render_template("index.html", poems=poems)
+    return render_template("index.html", poems=poems, show_contact_email=email_is_set)
 
 
 @app.route('/get-contact-email')
