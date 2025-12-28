@@ -134,7 +134,7 @@ async def translate_topic(topic, lang):
     response = await client.chat.completions.create(
         model=model_id,
         messages=[
-            {"role": "system", "content": "You translate poem titles accurately and beautifully."},
+            {"role": "system", "content": "You translate poem topics accurately and beautifully."},
             {"role": "user", "content": prompt},
         ],
         temperature=1,
