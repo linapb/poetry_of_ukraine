@@ -25,6 +25,7 @@ def get_poems():
                 poems.append(json.load(f))
     return poems
 
+
 async def safe_call(coro):
     """Run OpenAI call safely within a concurrency limit."""
     async with SEMAPHORE:
@@ -120,6 +121,7 @@ async def translate_title(title, lang):
     )
 
     return response.choices[0].message.content.strip()
+
 
 async def translate_topic(topic, lang):
     prompt = (

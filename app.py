@@ -1,6 +1,5 @@
 import os
-import asyncio
-from flask import Flask, redirect, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify
 from asgiref.wsgi import WsgiToAsgi
 
 import helpers
