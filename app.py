@@ -1,6 +1,6 @@
 import os
 import asyncio
-from flask import Flask, redirect, render_template, request
+from flask import Flask, redirect, render_template, request, jsonify
 from asgiref.wsgi import WsgiToAsgi
 
 import helpers
@@ -37,5 +37,11 @@ async def index():
         poems = await helpers.get_translations(poems, lang)
 
     return render_template("index.html", poems=poems)
+
+
+@app.route('/get-contact-email')
+def get_contact():
+    return jsonify(email=os.environ.get('CONTACT_EMAIL'))
+
 
 asgi_app = WsgiToAsgi(app)

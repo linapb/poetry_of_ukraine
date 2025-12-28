@@ -14,6 +14,13 @@ function changeLanguage(lang) {
     }
 }
 
+async function showEmail() {
+  const response = await fetch('/get-contact-email');
+  const data = await response.json();
+  document.getElementById('contact-email').innerText = data.email;
+  document.getElementById('show-email-btn').hidden = true;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const languageMenu = document.getElementById('language-menu');
     if (languageMenu) {
