@@ -147,8 +147,8 @@ async def translate_topic(topic, lang):
 async def translate_text(text, lang):
     prompt = (
         f"Translate the following Ukrainian text into {lang}. "
-        f"Very important, it contains html tags. Keep that html tags, under any condition don't change them (<b> tags) "
-        f"and don't add any other html tags. If you do, it will break the web page. Don't change html tags!"
+        f"Very important, it may contain html tags. Keep that html tags (<b> tags), under any condition don't change "
+        f"them and don't add any other html tags. If you do, it will break the web page. Don't change html tags! "
         f"Output only the translated text — no explanations, no commentary, no quotes.\n\n"
         f"Text:\n{text}"
     )
