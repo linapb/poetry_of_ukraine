@@ -44,11 +44,11 @@
     </div>
     <nav class="navbar navbar-expand navbar-light flex-wrap">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">{{ nav_bar | safe }}</a>
+        <a class="navbar-brand" href="#">{{ nav_bar_text | safe }}</a>
         <div class="navbar-nav">
-          <a class="navbar-brand fst-italic">Select your language <span class="bi bi-arrow-right" style="-webkit-text-stroke-width: 2px;"> </span></a>
+          <a class="navbar-brand fst-italic">{{ select_lang_text | safe }} <span class="bi bi-arrow-right" style="-webkit-text-stroke-width: 2px;"> </span></a>
           <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"> LANGUAGE</button>
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"> {{ lang_text |safe }}</button>
               <ul class="dropdown-menu" id="language-menu" aria-labelledby="dropdownMenuButton">
                     <li><input type="text" id="language-search" class="form-control" placeholder="Search..."></li>
                     <li><a class="dropdown-item" href="#" data-lang="Ukrainian"><span class="fi fi-ua"></span> Ukrainian - Українська - Original</a></li>
@@ -176,10 +176,10 @@
     <!-- Footer -->
     <footer class="text-center text-lg-start text-muted">
       <div class="text-center p-4">
-        <p>Note: translations are powered by LLM models. They can be incomplete or incorrect.</p>
-          <p>2025, developed and maintained by <a class="text-reset fw-bold" href="https://github.com/">@linapb</a></p>
+        <p>{{ note_text | safe }}</p>
+          <p>2025, {{ developed_by_text | safe }} <a class="text-reset fw-bold" href="https://github.com/">@linapb</a></p>
           {% if show_contact_email %}
-            <p>Contact me at <span id="contact-email"></span><button  class="btn btn-show-email" id="show-email-btn" onclick="showEmail()">Show Email</button></p>
+            <p>{{ contact_text | safe}} <span id="contact-email"></span><button  class="btn btn-show-email" id="show-email-btn" onclick="showEmail()">{{ show_email_text | safe }}</button></p>
           {% endif %}
       </div>
     </footer>

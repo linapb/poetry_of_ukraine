@@ -33,13 +33,34 @@ async def index():
 
     poems = helpers.get_poems()
     intro_text = "On this page, you'll discover a curated collection of nine distinct poems from various authors, each exploring different themes. This selection is designed to offer a glimpse into the essence of the <strong>Ukrainian spirit: love, courage and perseverance</strong>."
-    nav_bar = "EXPERIENCE POETRY OF UKRAINE IN YOUR NATIVE LANGUAGE"
+    nav_bar_text = "EXPERIENCE POETRY OF UKRAINE IN YOUR NATIVE LANGUAGE"
+    select_lang_text = "Select your language"
+    lang_text = "LANGUAGE"
+    note_text = "Note: translations are powered by LLM models. They can be incomplete or incorrect."
+    developed_by_text = "developed and maintained by"
+    contact_text = "Contact me at"
+    show_email_text = "Show Email"
 
     lang = request.args.get("lang")
     if lang not in [None, "Ukrainian"]:
-        poems, intro_text, nav_bar = await helpers.get_translations(lang, poems, intro_text, nav_bar)
+        poems, intro_text, nav_bar_text, select_lang_text, lang_text, note_text, developed_by_text, contact_text, show_email_text = await helpers.get_translations(
+            lang, poems, intro_text, nav_bar_text, select_lang_text, lang_text, note_text, developed_by_text,
+            contact_text, show_email_text,
+        )
 
-    return render_template("index.html", poems=poems, show_contact_email=email_is_set, intro_text=intro_text, nav_bar=nav_bar)
+    return render_template(
+        "index.html",
+        poems=poems,
+        show_contact_email=email_is_set,
+        intro_text=intro_text,
+        nav_bar_text=nav_bar_text,
+        select_lang_text=select_lang_text,
+        lang_text=lang_text,
+        note_text=note_text,
+        developed_by_text=developed_by_text,
+        contact_text=contact_text,
+        show_email_text=show_email_text,
+    )
 
 
 @app.route('/get-contact-email')
