@@ -32,11 +32,19 @@ async def safe_call(coro):
         return await coro
 
 
-async def get_translations(poems, lang):
-    """Translate all poems concurrently."""
-    tasks = [asyncio.create_task(translate_poem_data(poem, lang)) for poem in poems]
-    translations = await asyncio.gather(*tasks)
-    return translations
+async def get_translations(lang, poems, *texts):
+    """Translate all poems and other texts concurrently."""
+    # Create tasks for all poems
+    poem_tasks = [asyncio.create_task(translate_poem_data(poem, lang)) for poem in poems]
+    # Create tasks for all other texts
+    text_tasks = [asyncio.create_task(translate_text(text, lang)) for text in texts]
+
+    # Gather all translations
+    result = await asyncio.gather(*poem_tasks, *text_tasks)
+    translated_poems = result[: len(poems)]
+    translated_texts = result[len(poems) :]
+
+    return translated_poems, *translated_texts
 
 
 async def translate_poem_data(poem, lang):
@@ -146,7 +154,7 @@ async def translate_topic(topic, lang):
 
 async def translate_text(text, lang):
     prompt = (
-        f"Translate the following Ukrainian text into {lang}. "
+        f"Translate the following text into {lang}. "
         f"Very important, it may contain html tags. Keep that html tags (<b> tags), under any condition don't change "
         f"them and don't add any other html tags. If you do, it will break the web page. Don't change html tags! "
         f"Output only the translated text — no explanations, no commentary, no quotes.\n\n"
