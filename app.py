@@ -32,7 +32,7 @@ async def index():
     email_is_set = os.environ.get('CONTACT_EMAIL') is not None
 
     poems = helpers.get_poems()
-    intro_text = "On this page, you'll discover a curated collection of nine distinct poems from various authors, each exploring different themes. This selection is designed to offer a glimpse into the essence of the <strong>Ukrainian spirit: love, courage and perseverance</strong>."
+    intro_text = "On this page, you'll discover a curated collection of nine distinct poems from various authors, each exploring different themes. This selection is designed to offer a glimpse into the essence of the Ukrainian spirit: love, courage and perseverance."
     nav_bar_text = "EXPERIENCE POETRY OF UKRAINE IN YOUR NATIVE LANGUAGE"
     select_lang_text = "Select your language"
     lang_text = "LANGUAGE"
