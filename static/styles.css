@@ -193,4 +193,14 @@ body{
         flex-direction: column;
         align-items: center;
     }
+
+    /* "Select language" text size */
+    .navbar-nav .navbar-brand {
+        font-size: 0.75rem;
+    }
+
+    /* "Select language" button size*/
+    .navbar-nav .btn {
+        font-size: 0.5rem;
+    }
 }
