@@ -65,6 +65,8 @@ async def translate_poem_data(poem, lang):
 
 
 async def translate_poem(poem, lang):
+    if lang == "English":
+        return poem
     prompt = (
         f"Translate the following Ukrainian poem into {lang}. "
         f"Make it rhyme naturally in {lang}. "

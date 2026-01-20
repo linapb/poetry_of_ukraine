@@ -42,7 +42,19 @@ async def index():
     show_email_text = "Show Email"
 
     lang = request.args.get("lang")
-    if lang not in [None, "Ukrainian"]:
+
+    # Don't translate all parts for English and Ukrainian
+    if lang is None:
+        pass
+    elif lang == "Ukrainian":
+        _, intro_text, nav_bar_text, select_lang_text, lang_text, note_text, developed_by_text, contact_text, show_email_text = await helpers.get_translations(
+            lang, [], intro_text, nav_bar_text, select_lang_text, lang_text, note_text, developed_by_text,
+            contact_text, show_email_text,
+        )
+    elif lang == "English":
+        poems = await helpers.get_translations(lang, poems)
+        poems = poems[0]
+    else:
         poems, intro_text, nav_bar_text, select_lang_text, lang_text, note_text, developed_by_text, contact_text, show_email_text = await helpers.get_translations(
             lang, poems, intro_text, nav_bar_text, select_lang_text, lang_text, note_text, developed_by_text,
             contact_text, show_email_text,
