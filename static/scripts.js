@@ -1,9 +1,5 @@
 function changeLanguage(lang) {
-    if (lang === 'Ukrainian') {
-        window.location.href = "/";
-    } else {
-        window.location.href = "/?lang=" + lang;
-    }
+  window.location.href = "/?lang=" + lang;
 }
 
 async function showEmail() {
