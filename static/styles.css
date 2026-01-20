@@ -139,6 +139,7 @@ body{
     }
     .topic {
         text-align: center !important;
+        padding-top: 1rem !important;
     }
 
     /* Adjust spacing */
@@ -148,6 +149,16 @@ body{
     .navbar, .lead, footer {
         margin-left: 60px !important;
         margin-right: 60px !important;
+    }
+
+   /* Intro text */
+    .lead {
+        font-size: 0.5rem;
+        margin-left: 20px !important;
+        margin-right: 20px !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
     }
 
     /* Fix image and box sizing */
