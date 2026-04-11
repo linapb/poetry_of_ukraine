@@ -143,6 +143,12 @@ body{
         text-align: center !important;
         padding-top: 1rem !important;
     }
+    .poem_title {
+        padding-bottom: 1rem !important;
+    }
+    .poem_text {
+        font-size: 0.7rem;
+    }
 
     /* Adjust spacing */
     .container {
