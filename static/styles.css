@@ -200,8 +200,8 @@ body{
     /* Fix image, image-box and text sizing*/
     img {
         width: 100%;
-/*        height: 310px;
-        object-fit: cover; *//* Crops the edges to fit *//*
+        height: 310px;
+        object-fit: cover; /* Crops the edges to fit *//*
         object-position: top; *//* Keeps the top visible, trims the bottom */
     }
     .image-box {
