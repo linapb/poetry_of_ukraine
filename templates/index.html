@@ -5,15 +5,15 @@
 {% endblock %}
 
 {% block main %}
-<p class="lead px-5 py-5">{{ intro_text | safe }}</p>
+<p class="lead px-5 pt-5">{{ intro_text | safe }}</p>
     <div class="container">
 
         {% for poem in poems %}
             {% if poem.id | int  % 2 == 0 %}
-                <p class="topic text-md-center pt-5 fs-1 fst-italic fw-lighter"> {{ poem.topic }} </p>
+                <p class="topic text-md-center fs-1 fst-italic fw-lighter"> {{ poem.topic }} </p>
                 <div class="row pb-5 justify-content-md-end flex-column-reverse flex-md-row">
             {% else %}
-                <p class="topic text-md-start pt-5 fs-1 fst-italic fw-lighter"> {{ poem.topic }} </p>
+                <p class="topic text-md-start fs-1 fst-italic fw-lighter"> {{ poem.topic }} </p>
                 <div class="row pb-5 justify-content-md-start flex-column-reverse flex-md-row">
             {% endif %}
                     <div class="col col-md-4 p-5 poem shadow-lg rounded">
