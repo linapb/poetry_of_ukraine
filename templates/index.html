@@ -16,13 +16,13 @@
                 <p class="topic text-md-start fs-1 fst-italic fw-lighter"> {{ poem.topic }} </p>
                 <div class="row pb-5 justify-content-md-start flex-column-reverse flex-md-row">
             {% endif %}
-                    <div class="col col-md-4 p-5 poem shadow-lg rounded">
+                    <div class="col poem col-md-4 p-5  shadow-lg rounded">
                         <h2 class="poem_title pb-5">{{ poem.title }}</h2>
                         <div class="poem_text">{{ poem.text | safe }}</div>
-                        <div class="pt-2 year">{{ poem.year }}</div>
+                        <div class="year pt-2 ">{{ poem.year }}</div>
                     </div>
-                    <div class="col col-md-4 px-0 author">
-                        <div class="box parent d-flex flex-column rounded">
+                    <div class="col author col-md-4 px-0 ">
+                        <div class="image-box parent d-flex flex-column rounded">
                             <h2 class="p-5">{{ poem.author }}</h2>
                             <img class="child mt-auto rounded" src="{{ poem.author_photo }}" alt="photo of {{ poem.author }}">
                         </div>
