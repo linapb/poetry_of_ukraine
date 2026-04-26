@@ -4,6 +4,26 @@ from asgiref.wsgi import WsgiToAsgi
 
 import helpers
 
+# Consts: Texts in English
+intro_text_eng = "On this page, you'll discover a curated collection of nine distinct poems from various authors, each exploring different themes. This selection is designed to offer a glimpse into the essence of the Ukrainian spirit: love, courage and perseverance."
+nav_bar_text_eng = "EXPERIENCE POETRY OF UKRAINE IN YOUR NATIVE LANGUAGE"
+select_lang_text_eng = "Select your language"
+lang_text_eng = "LANGUAGE"
+note_text_eng = "Note: translations are powered by LLM models. They can be incomplete or incorrect."
+developed_by_text_eng = "developed and maintained by"
+contact_text_eng = "Contact me at"
+show_email_text_eng = "Show Email"
+
+# Consts: Texts in Ukrainian
+intro_text_ua = "На данній сторінці ви знайдете добірку з девʼяти поезій різних авторів, кожна з яких досліджує різну тему. Ця колекція створена для того, щоб підсвітити сутність Укранського духу: любов, смітивість і витримка."
+nav_bar_text_ua = "ВІДЧУЙТЕ УКРАЇНСЬКУ ПОЕЗІЮ ВАШОЮ РІДНОЮ МОВОЮ"
+select_lang_text_ua = "Оберіть вашу мову"
+lang_text_ua = "МОВА"
+note_text_ua = "Зауважте: переклади зроблені за допомогою штучного інтелекту. Вони можуть бути неповні чи некоректні."
+developed_by_text_ua = "розроблено і підтримується"
+contact_text_ua = "Звʼязатися зі мною"
+show_email_text_ua = "Показати імейл"
+
 # Create app
 app = Flask(__name__)
 
@@ -27,37 +47,33 @@ def internal_server_error(e):
     return render_template('500.html'), 500
 
 
+@app.route('/get-contact-email')
+def get_contact():
+    return jsonify(email=os.environ.get('CONTACT_EMAIL'))
+
+
 @app.route("/")
 async def index():
     email_is_set = os.environ.get('CONTACT_EMAIL') is not None
-
-    poems = helpers.get_poems()
-    intro_text = "On this page, you'll discover a curated collection of nine distinct poems from various authors, each exploring different themes. This selection is designed to offer a glimpse into the essence of the Ukrainian spirit: love, courage and perseverance."
-    nav_bar_text = "EXPERIENCE POETRY OF UKRAINE IN YOUR NATIVE LANGUAGE"
-    select_lang_text = "Select your language"
-    lang_text = "LANGUAGE"
-    note_text = "Note: translations are powered by LLM models. They can be incomplete or incorrect."
-    developed_by_text = "developed and maintained by"
-    contact_text = "Contact me at"
-    show_email_text = "Show Email"
+    poems_ua_originals = helpers.get_poems()
 
     lang = request.args.get("lang")
 
-    # Don't translate all parts for English and Ukrainian
     if lang is None:
-        pass
+        # Default version combines English texts and poems in Ukrainian
+        poems = poems_ua_originals
+        intro_text, nav_bar_text, select_lang_text, lang_text, note_text, developed_by_text, contact_text, show_email_text = intro_text_eng, nav_bar_text_eng, select_lang_text_eng, lang_text_eng, note_text_eng, developed_by_text_eng, contact_text_eng, show_email_text_eng
     elif lang == "Ukrainian":
-        _, intro_text, nav_bar_text, select_lang_text, lang_text, note_text, developed_by_text, contact_text, show_email_text = await helpers.get_translations(
-            lang, [], intro_text, nav_bar_text, select_lang_text, lang_text, note_text, developed_by_text,
-            contact_text, show_email_text,
-        )
+        # Everything in Ukrainian
+        poems = poems_ua_originals
+        intro_text, nav_bar_text, select_lang_text, lang_text, note_text, developed_by_text, contact_text, show_email_text = intro_text_ua, nav_bar_text_ua, select_lang_text_ua, lang_text_ua, note_text_ua, developed_by_text_ua, contact_text_ua, show_email_text_ua
     elif lang == "English":
-        (poems,) = await helpers.get_translations(lang, poems)
+        # Everything in English
+        (poems,) = await helpers.get_translations(lang, poems_ua_originals)
+        intro_text, nav_bar_text, select_lang_text, lang_text, note_text, developed_by_text, contact_text, show_email_text = intro_text_eng, nav_bar_text_eng, select_lang_text_eng, lang_text_eng, note_text_eng, developed_by_text_eng, contact_text_eng, show_email_text_eng
     else:
-        poems, intro_text, nav_bar_text, select_lang_text, lang_text, note_text, developed_by_text, contact_text, show_email_text = await helpers.get_translations(
-            lang, poems, intro_text, nav_bar_text, select_lang_text, lang_text, note_text, developed_by_text,
-            contact_text, show_email_text,
-        )
+        # Translates everything for all other languages
+        poems, intro_text, nav_bar_text, select_lang_text, lang_text, note_text, developed_by_text, contact_text, show_email_text = await helpers.get_translations(lang, poems_ua_originals, intro_text_eng, nav_bar_text_eng, select_lang_text_eng, lang_text_eng, note_text_eng, developed_by_text_eng, contact_text_eng, show_email_text_eng)
 
     return render_template(
         "index.html",
@@ -72,11 +88,6 @@ async def index():
         contact_text=contact_text,
         show_email_text=show_email_text,
     )
-
-
-@app.route('/get-contact-email')
-def get_contact():
-    return jsonify(email=os.environ.get('CONTACT_EMAIL'))
 
 
 asgi_app = WsgiToAsgi(app)
